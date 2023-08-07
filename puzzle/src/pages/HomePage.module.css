@@ -1,0 +1,171 @@
+a {
+  text-decoration: none;
+  color: rgb(47, 47, 47);
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  position: sticky;
+  top: 0px;
+  z-index: 1000;
+  background-color: white;
+  width: 100%;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: 1px solid lightgray;
+  padding: 0px 40px;
+}
+
+.top-section > ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+.top-section > ul > li {
+  border-right: 2px solid lightgray;
+  padding: 0px 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.top-section > ul > li:last-child {
+  padding-right: 0;
+  border-right: none;
+}
+
+.bottom-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  height: 80px;
+  padding: 0px 40px;
+  border-bottom: 1px solid lightgray;
+}
+
+.bottom-section picture {
+  cursor: pointer;
+  margin-right: 100px;
+}
+
+.searchBox {
+  width: 30%;
+  position: relative;
+  max-width: 700px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu > ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0;
+  gap: 50px;
+}
+
+.menu > ul > li {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider{
+  width: 100%;
+  height: 400px;
+  background-color: lightblue;
+}
+
+.body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 2px solid lightgray;
+  padding: 40px;
+}
+
+.sidebar h2{
+  margin-bottom: 50px;
+}
+
+.sidebar select{
+  width: 200px;
+  height: 40px;
+  margin-bottom: 40px;
+}
+
+.contents{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 40px 30px;
+}
+
+.contents .top-contents{
+  display: flex;
+}
+
+.contents .top-contents select {
+  width: 100px;
+  height: 40px;
+}
+
+.postBtn{
+  width: 100px;
+  height: 40px;
+  background-color: purple;
+  color: white;
+  border-radius: 10px;
+}
+
+.posts{
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  padding-top: 30px;
+}
+
+.posts .postCard{
+  width: 250px;
+  height: 200px;
+  margin-right: 40px;
+}
