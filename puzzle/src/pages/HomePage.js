@@ -1,48 +1,12 @@
 import React from "react";
 import classes from "./HomePage.module.css";
-import test1 from "../images/test1.png";
-import test2 from "../images/test2.png";
-import test3 from "../images/test3.png";
 import Card from './../UI/Card';
+import Header from "../components/Header.js";
 
 const Homepage = () => {
   return (
     <div className={classes.home}>
-      <header className={classes.header}>
-        <section className={classes["top-section"]}>
-          <ul>
-            <li>
-              <a href="/mypage">마이페이지</a>
-            </li>
-            <li>
-              <a href="/login">로그인</a>
-            </li>
-          </ul>
-        </section>
-        <section className={classes["bottom-section"]}>
-          <picture>사진</picture>
-          <div className={classes.searchBox}>검색창</div>
-          <div className={classes.menu}>
-            <ul>
-              <li>
-                <a href="#x">메뉴1</a>
-              </li>
-              <li>
-                <a href="#x">메뉴2</a>
-              </li>
-              <li>
-                <a href="#x">메뉴3</a>
-              </li>
-              <li>
-                <a href="#x">메뉴4</a>
-              </li>
-              <li>
-                <a href="#x">메뉴5</a>
-              </li>
-            </ul>
-          </div>
-        </section>
-      </header>
+      <Header/>
       <main className={classes.main}>
         <div className={classes.slider}>광고 배너 영역</div>
         <div className={classes.body}>

@@ -1,0 +1,24 @@
+.loginpage{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginpage body{
+  display: flex;
+  flex-direction: column;
+}
+
+.loginpage body img{
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.loginpage body button{
+  height: 50px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+}

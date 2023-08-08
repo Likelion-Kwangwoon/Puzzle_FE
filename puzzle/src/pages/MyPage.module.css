@@ -1,0 +1,127 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0 30px 0;
+  padding-bottom: 50px;
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+}
+
+.userInfo .profileImage{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.userInfo .profileImage button{
+  margin-top: 20px;
+  width: 80px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+  transform: translateX(-100%) translateY(-50%);
+  cursor: pointer;
+}
+
+.userInfo .profileImage button:hover{
+  background-color: lightgray;
+}
+
+.userInfo .image {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 100px;
+}
+
+.userInfo .image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.userInfo .profileInfo table{
+  border-spacing: 0px;
+}
+
+.userInfo .profileInfo table > tbody > tr > th,
+.userInfo .profileInfo table > tbody > tr > td {
+  padding: 10px;
+  border-top: 1px solid lightgray;
+}
+
+.userInfo .profileInfo table > tbody > tr > th{
+  font-weight: bolder;
+  font-size: 18px;
+  padding-right: 50px;
+}
+
+.userInfo .profileInfo table > tbody > tr:last-child > th,
+.userInfo .profileInfo table > tbody > tr:last-child > td {
+  border-bottom: 1px solid lightgray;
+}
+
+.subscribe{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.subscribe .products{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.subscribe .products .card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 400px;
+  background-color: white;
+  border: 1px solid purple;
+}
+
+.subscribe .products .card h3{
+  color: purple;
+}
+
+.subscribe .products .card p{
+  padding: 0;
+  margin: 5px;
+  border: 0;
+  font-weight: bold;
+}
+
+.subscribe .products .card button{
+  background-color: purple;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.subscribe .products .card button:hover{
+  background-color: rgba(128, 0, 128, 0.7);
+}

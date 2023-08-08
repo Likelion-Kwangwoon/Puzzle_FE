@@ -1,0 +1,89 @@
+.header {
+  position: sticky;
+  top: 0px;
+  z-index: 1000;
+  background-color: white;
+  width: 100%;
+}
+
+.top-section {
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: 1px solid lightgray;
+  padding: 0px 40px;
+}
+
+.top-section > ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+.top-section > ul > li {
+  border-right: 2px solid lightgray;
+  padding: 0px 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.top-section > ul > li:last-child {
+  padding-right: 0;
+  border-right: none;
+}
+
+.bottom-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0px 40px;
+  border-bottom: 1px solid lightgray;
+}
+
+.bottom-section picture {
+  cursor: pointer;
+  margin-right: 100px;
+}
+
+.searchBox {
+  width: 30%;
+  max-width: 500px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 700px;
+  border: 1px solid purple;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-right: 100px;
+  padding: 5px 20px 5px 15px;
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.menu > ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  gap: 50px;
+}
+
+.menu > ul > li {
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 18px;
+}
