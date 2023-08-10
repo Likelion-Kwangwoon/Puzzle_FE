@@ -1,0 +1,23 @@
+.postFilter{
+  padding: 0 20px;
+}
+
+.postFilter__control{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.postFilter label{
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.postFilter select{
+  font: inherit;
+  padding: 10px 50px;
+  font-weight: bold;
+  border-radius: 6px;
+}

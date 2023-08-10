@@ -1,12 +1,13 @@
 import React from "react";
 import classes from "./HomePage.module.css";
-import Card from './../UI/Card';
 import Header from "../components/Header.js";
+import Posts from "../components/Posts.js";
+import { Link } from "react-router-dom";
 
 const Homepage = () => {
   return (
     <div className={classes.home}>
-      <Header/>
+      <Header />
       <main className={classes.main}>
         <div className={classes.slider}>광고 배너 영역</div>
         <div className={classes.body}>
@@ -35,13 +36,12 @@ const Homepage = () => {
                 <option value="2">필터링2</option>
                 <option value="3">필터링3</option>
               </select>
-              <button className={classes.postBtn}>글 작성</button>
+              <Link to="/writepost">
+                <button className={classes.postBtn}>글 작성</button>
+              </Link>
             </div>
             <div className={classes.posts}>
-              <Card className={classes.postCard}>내용1</Card>
-              <Card className={classes.postCard}>내용1</Card>
-              <Card className={classes.postCard}>내용1</Card>
-
+              <Posts />
             </div>
           </div>
         </div>

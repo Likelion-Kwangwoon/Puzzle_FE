@@ -8,8 +8,10 @@ const LoginPage = () => {
     <div className={classes.loginpage}>
       <Header />
       <body>
-        <img src={LoginLogo} alt="로고" style={{width: "300px"}}/>
-        <button>구글 계정으로 로그인</button>
+        <img src={LoginLogo} alt="로고" style={{ width: "300px" }} />
+        <a href="https://20.196.211.79:8080/oauth2/authorization/google">
+          구글 계정으로 로그인
+        </a>
       </body>
     </div>
   );
