@@ -6,13 +6,20 @@ import LoginPage from "./pages/LoginPage.js";
 import MyPage from "./pages/MyPage.js";
 import WritePost from "./pages/WritePost.js";
 import PostDetail from "./pages/PostDetail.js";
+import Root from "./components/Root.js";
 
 const router = createBrowserRouter([
-  { path: "/", element: <HomePage /> },
-  { path: "/login", element: <LoginPage /> },
-  { path: "/mypage", element: <MyPage /> },
-  { path: "/writepost", element: <WritePost /> },
-  // {path: "/post/:id", element:<PostDetail id={id}/>}
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      { path: "/", element: <HomePage /> },
+      { path: "/login", element: <LoginPage /> },
+      { path: "/mypage", element: <MyPage /> },
+      { path: "/writepost", element: <WritePost /> },
+      { path: "/posts/:postId", element: <PostDetail /> },
+    ],
+  },
 ]);
 
 function App() {

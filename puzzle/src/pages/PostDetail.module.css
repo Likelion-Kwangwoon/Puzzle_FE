@@ -1,0 +1,139 @@
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.postBody {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+}
+
+.postDetail > div {
+  display: flex;
+}
+
+.postDetail > div > p {
+  padding-right: 10px;
+}
+
+.postDetail .likeUnlike {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.postDetail .likeUnlike button {
+  margin: 10px;
+  width: 70px;
+  border: 1px solid purple;
+  background-color: white;
+  height: 30px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.postDetail .likeUnlike button:hover {
+  color: white;
+  background-color: purple;
+}
+
+.postComment {
+  width: 100%;
+}
+
+.postComment h3 {
+  border-top: 1px solid gray;
+  padding-top: 30px;
+}
+
+.postComment table {
+  width: 100%;
+  border-spacing: 0px;
+}
+
+.postComment table > tbody > tr > td {
+  border-top: 1px solid lightgray;
+  padding: 10px;
+  max-width: 25vw;
+}
+
+.postComment table > tbody > tr:last-child > td {
+  border-bottom: 1px solid lightgray;
+}
+
+.writeComment {
+  display: flex;
+  margin-top: 30px;
+}
+
+.writeComment input {
+  border: 2px solid purple;
+  width: 30vw;
+  height: 30px;
+  border-radius: 10px;
+}
+
+.writeComment button {
+  cursor: pointer;
+  width: 100px;
+  background-color: purple;
+  color: white;
+  border-radius: 10px;
+  margin-left: 30px;
+}
+
+.reviewBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 40vw;
+  margin-left: 5vw;
+  margin-top: 50px;
+}
+
+.reviewList {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+}
+
+.reviewCount {
+  display: flex;
+  border: 1px solid lightgray;
+  padding-left: 20px;
+}
+
+.reviewCount h3:first-child {
+  margin-right: 20px;
+}
+
+.reviewBlock {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  padding: 0 20px 0 20px;
+}
+
+.reviewBlock  p {
+  margin: 0;
+}
+
+.reviewBlock > p:first-child {
+  padding-top: 10px;
+}
+
+.reviewBlock > p:last-child {
+  padding-bottom: 10px;
+}
+
+.ratingAndBtn{
+  display: flex;
+}
+
+.ratingAndBtn button{
+  margin-left: 10px;
+}

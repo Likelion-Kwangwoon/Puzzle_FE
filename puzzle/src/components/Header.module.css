@@ -36,6 +36,12 @@
   border-right: none;
 }
 
+.top-section>ul>li>a:hover,
+.top-section>ul>li>a:active{
+  color: purple;
+  text-decoration: underline;
+}
+
 .bottom-section {
   display: flex;
   align-items: center;

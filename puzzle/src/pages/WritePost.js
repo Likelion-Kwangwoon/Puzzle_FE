@@ -1,11 +1,9 @@
 import React from "react";
 import classes from "./WritePost.module.css";
-import Header from "../components/Header.js";
 
 const WritePost = () => {
   return (
     <>
-      <Header />
       <div className={classes.body}>
         <form className={classes.writePost}>
           <h2>게시글 작성</h2>

@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../components/Header.js";
 import classes from "./MyPage.module.css";
 
 import logo from "../images/logo.png";
@@ -8,7 +7,6 @@ import Card from "../UI/Card.js";
 const MyPage = () => {
   return (
     <div className={classes.mypage}>
-      <Header />
       <div className={classes.body}>
         <h2>마이 페이지</h2>
         <div className={classes.userInfo}>

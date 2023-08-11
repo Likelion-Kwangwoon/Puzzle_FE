@@ -98,7 +98,7 @@ a {
 
 .body{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
   width: 100%;
   height: 100%;
@@ -128,7 +128,6 @@ a {
 }
 
 .contents{
-  width: 100%;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -143,6 +142,7 @@ a {
 .contents .top-contents select {
   width: 100px;
   height: 40px;
+  text-align: center;
 }
 
 .contents .top-contents button{
@@ -161,7 +161,7 @@ a {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: 100%;
+  max-width: 1000px;
   height: 100%;
   padding-top: 30px;
 }

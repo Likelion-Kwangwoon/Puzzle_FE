@@ -1,13 +1,11 @@
 import React from "react";
 import classes from "./HomePage.module.css";
-import Header from "../components/Header.js";
 import Posts from "../components/Posts.js";
 import { Link } from "react-router-dom";
 
 const Homepage = () => {
   return (
     <div className={classes.home}>
-      <Header />
       <main className={classes.main}>
         <div className={classes.slider}>광고 배너 영역</div>
         <div className={classes.body}>
