@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { FaStar } from "react-icons/fa";
 import classes from "./PostDetail.module.css";
+import Rating from "../UI/Rating.js";
 
 const DETAIL = {
   postId: 1,
@@ -10,6 +12,8 @@ const DETAIL = {
   isPublicWriter: false,
   viewNumber: 120,
   postContent: "CONTENT 1 CONTENT 1 CONTENT 1 CONTENT 1 CONTENT 1",
+  postLike: 88,
+  postUnlike: 3,
   postComment: [
     {
       commentId: 1,
@@ -33,6 +37,8 @@ const DETAIL = {
       reviewedDate: "2020-02-02",
       rating: 5,
       reviewContent: "이거 진짜 좋아요. 리뷰 내용이에요.",
+      reviewLike: 14,
+      reviewUnlike: 0,
     },
     {
       reviewId: 2,
@@ -40,14 +46,150 @@ const DETAIL = {
       reviewedDate: "2020-02-02",
       rating: 4,
       reviewContent: "이거 진짜 좋아요. 리뷰 내용이에요.",
+      reviewLike: 8,
+      reviewUnlike: 1,
     },
   ],
 };
 
-const RATING = ["★☆☆☆☆", "★★☆☆☆", "★★★☆☆", "★★★★☆", "★★★★★"];
+const printStar = (rate) => {
+  const starArr = [];
+  for (let i = 0; i < rate; i++) {
+    starArr.push(<FaStar key={i} className={classes.fillStar} />);
+  }
+  for (let i = 0; i < 5 - rate; i++) {
+    starArr.push(<FaStar key={5 - i} className={classes.emptyStar} />);
+  }
+  return starArr;
+};
+
+const RATING = [1, 2, 3, 4, 5];
 
 const PostDetail = () => {
-  const params = useParams();
+  //const params = useParams();
+  const reviewLikeArr = [];
+  const reviewUnlikeArr = [];
+  const reviewLikeBtnActiveArr = [];
+  const reviewUnlikeBtnActiveArr = [];
+  for (let i = 0; i < DETAIL.postReview.length; i++) {
+    reviewLikeArr.push(DETAIL.postReview[i].reviewLike);
+    reviewUnlikeArr.push(DETAIL.postReview[i].reviewUnlike);
+    reviewLikeBtnActiveArr.push(false);
+    reviewUnlikeBtnActiveArr.push(false);
+  }
+
+  const [postLike, setPostLike] = useState(DETAIL.postLike);
+  const [postUnlike, setPostUnlike] = useState(DETAIL.postUnlike);
+  const [postLikeBtnIsActive, setPostLikeBtnIsActive] = useState(false);
+  const [postUnlikeBtnIsActive, setPostUnlikeBtnIsActive] = useState(false);
+  const [reviewLike, setReviewLike] = useState(reviewLikeArr);
+  const [reviewUnlike, setReviewUnlike] = useState(reviewUnlikeArr);
+  const [reviewLikeBtnIsActive, setReviewLikeBtnIsActive] = useState(
+    reviewLikeBtnActiveArr
+  );
+  const [reviewUnlikeBtnIsActive, setReviewUnlikeBtnIsActive] = useState(
+    reviewUnlikeBtnActiveArr
+  );
+
+  const postLikeBtnHandler = () => {
+    postLikeBtnIsActive ? setPostLike(postLike - 1) : setPostLike(postLike + 1);
+    postUnlikeBtnIsActive
+      ? setPostUnlike(postUnlike - 1)
+      : setPostUnlike(postUnlike);
+    setPostUnlikeBtnIsActive(false);
+    setPostLikeBtnIsActive(!postLikeBtnIsActive);
+  };
+
+  const postUnlikeBtnHandler = () => {
+    postUnlikeBtnIsActive
+      ? setPostUnlike(postUnlike - 1)
+      : setPostUnlike(postUnlike + 1);
+    postLikeBtnIsActive ? setPostLike(postLike - 1) : setPostLike(postLike);
+    setPostLikeBtnIsActive(false);
+    setPostUnlikeBtnIsActive(!postUnlikeBtnIsActive);
+  };
+
+  const reviewLikeBtnHandler = (idx) => {
+    let likeCnt = [...reviewLike];
+    let unlikeCnt = [...reviewUnlike];
+    let likeBtnActive = [...reviewLikeBtnIsActive];
+    let unlikeBtnActive = [...reviewUnlikeBtnIsActive];
+
+    if (likeBtnActive[idx]) {
+      likeCnt = likeCnt.map((c, i) => {
+        if (i === idx) return c - 1;
+        else return c;
+      });
+      setReviewLike(likeCnt);
+    } else {
+      likeCnt = likeCnt.map((c, i) => {
+        if (i === idx) return c + 1;
+        else return c;
+      });
+      setReviewLike(likeCnt);
+    }
+
+    if (unlikeBtnActive[idx]) {
+      unlikeCnt = unlikeCnt.map((c, i) => {
+        if (i === idx) return c - 1;
+        else return c;
+      });
+      setReviewUnlike(unlikeCnt);
+    }
+
+    unlikeBtnActive = unlikeBtnActive.map((c, i) => {
+      if (i === idx) return false;
+      else return c;
+    });
+    setReviewUnlikeBtnIsActive(unlikeBtnActive);
+
+    likeBtnActive = likeBtnActive.map((c, i) => {
+      if (i === idx) return !c;
+      else return c;
+    });
+    setReviewLikeBtnIsActive(likeBtnActive);
+  };
+
+  const reviewUnlikeBtnHandler = (idx) => {
+    let likeCnt = [...reviewLike];
+    let unlikeCnt = [...reviewUnlike];
+    let likeBtnActive = [...reviewLikeBtnIsActive];
+    let unlikeBtnActive = [...reviewUnlikeBtnIsActive];
+
+    if (unlikeBtnActive[idx]) {
+      unlikeCnt = unlikeCnt.map((c, i) => {
+        if (i === idx) return c - 1;
+        else return c;
+      });
+      setReviewUnlike(unlikeCnt);
+    } else {
+      unlikeCnt = unlikeCnt.map((c, i) => {
+        if (i === idx) return c + 1;
+        else return c;
+      });
+      setReviewUnlike(unlikeCnt);
+    }
+
+    if (likeBtnActive[idx]) {
+      likeCnt = likeCnt.map((c, i) => {
+        if (i === idx) return c - 1;
+        else return c;
+      });
+      setReviewLike(likeCnt);
+    }
+
+    likeBtnActive = likeBtnActive.map((c, i) => {
+      if (i === idx) return false;
+      else return c;
+    });
+    setReviewLikeBtnIsActive(likeBtnActive);
+
+    unlikeBtnActive = unlikeBtnActive.map((c, i) => {
+      if (i === idx) return !c;
+      else return c;
+    });
+    setReviewUnlikeBtnIsActive(unlikeBtnActive);
+  };
 
   return (
     <div className={classes.body}>
@@ -57,12 +199,22 @@ const PostDetail = () => {
             <h2>{DETAIL.postTitle}</h2>
             <div>
               <p>{DETAIL.postWriter}</p>
-              {DETAIL.isPublicWriter && <p>★</p>}
+              {DETAIL.isPublicWriter && <FaStar size="20px" />}
             </div>
             <p>{DETAIL.postContent}</p>
             <div className={classes.likeUnlike}>
-              <button>좋아요</button>
-              <button>싫어요</button>
+              <button
+                onClick={postLikeBtnHandler}
+                className={postLikeBtnIsActive ? classes.btnActive : ""}
+              >
+                좋아요<span>&nbsp;{postLike}</span>
+              </button>
+              <button
+                onClick={postUnlikeBtnHandler}
+                className={postUnlikeBtnIsActive ? classes.btnActive : ""}
+              >
+                싫어요<span>&nbsp;{postUnlike}</span>
+              </button>
             </div>
           </div>
           <div className={classes.postComment}>
@@ -75,7 +227,10 @@ const PostDetail = () => {
                       <tr key={com.commentId}>
                         <td>{com.commentContent}</td>
                         <td>
-                          {com.commentWriter} {com.isPublicComment && "★"}
+                          {com.commentWriter}{" "}
+                          {com.isPublicComment && (
+                            <FaStar size="15px" color="orange" />
+                          )}
                         </td>
                         <td>{com.commentedDate}</td>
                       </tr>
@@ -96,15 +251,29 @@ const PostDetail = () => {
               <h3>{DETAIL.postReview.length}</h3>
             </div>
             {DETAIL.postReview &&
-              DETAIL.postReview.map((rev) => {
+              DETAIL.postReview.map((rev, idx) => {
                 return (
                   <div key={rev.reviewId} className={classes.reviewBlock}>
                     <p>{rev.reviewWriter}</p>
                     <div className={classes.ratingAndBtn}>
-                      <p>{RATING[rev.rating - 1]}</p>
-                      <div className={classes.reviewLikeUnike}>
-                        <button>좋아요</button>
-                        <button>싫어요</button>
+                      <p>{printStar(rev.rating)}</p>
+                      <div className={classes.reviewLikeUnlike}>
+                        <button
+                          onClick={() => {
+                            reviewLikeBtnHandler(idx);
+                          }}
+                          className={reviewLikeBtnIsActive[idx] ? classes.btnActive : ""}
+                        >
+                          좋아요<span>&nbsp;{reviewLike[idx]}</span>
+                        </button>
+                        <button
+                          onClick={() => {
+                            reviewUnlikeBtnHandler(idx);
+                          }}
+                          className={reviewUnlikeBtnIsActive[idx] ? classes.btnActive : ""}
+                        >
+                          싫어요<span>&nbsp;{reviewUnlike[idx]}</span>
+                        </button>
                       </div>
                     </div>
                     <p>{rev.reviewContent}</p>
@@ -112,10 +281,12 @@ const PostDetail = () => {
                 );
               })}
           </div>
-          <div className={classes.writeComment}>
-            {/** 별점 */}
-            <input type="text" />
-            <button>리뷰 작성</button>
+          <div className={classes.reviewInput}>
+            <Rating />
+            <div className={classes.writeComment}>
+              <input type="text" />
+              <button>리뷰 작성</button>
+            </div>
           </div>
         </div>
       </div>

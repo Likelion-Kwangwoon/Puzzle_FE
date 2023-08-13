@@ -5,14 +5,61 @@ import classes from "./LoginPage.module.css";
 const LoginPage = () => {
   return (
     <div className={classes.loginpage}>
-      <body>
-        <img src={LoginLogo} alt="로고" style={{ width: "300px" }} />
-        <button>
-          <a href="http://20.196.211.79:8080/oauth2/authorization/google">
-            구글 계정으로 로그인
-          </a>
-        </button>
-      </body>
+      <div className={classes.register}>
+        <form action="http://20.196.211.79:8080/user" method="POST">
+          {/* <input
+              type="hidden"
+              th:name="${_csrf?.parameterName}"
+              th:value="${_csrf?.token}"
+            /> */}
+          <div>
+            <label>Email address</label>
+            <input type="email" name="email" />
+          </div>
+          <div>
+            <label>Password</label>
+            <input type="password" name="password" />
+          </div>
+
+          <button type="submit">Register</button>
+        </form>
+      </div>
+      <div className={classes.login}>
+        <div>
+          <div style={{ borderRadius: "1rem" }}>
+            <div>
+              <h2>LOGIN</h2>
+              <p>서비스를 사용하려면 로그인을 해주세요!</p>
+
+              <div>
+                <form action="http://20.196.211.79/login" method="POST">
+                  {/* <input
+                    type="hidden"
+                    th:name="${_csrf?.parameterName}"
+                    th:value="${_csrf?.token}"
+                  /> */}
+                  <div>
+                    <label>Email address</label>
+                    <input type="email" name="username" />
+                  </div>
+                  <div>
+                    <label>Password</label>
+                    <input type="password" name="password" />
+                  </div>
+                  <button type="submit">Login</button>
+                </form>
+
+                <button
+                  type="button"
+                  // onclick="location.href='/signup'"
+                >
+                  회원가입
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

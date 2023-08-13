@@ -2,6 +2,7 @@ import React from "react";
 import Card from "../UI/Card.js";
 import classes from "./Posts.module.css";
 import { Link } from "react-router-dom";
+import { FaStar } from "react-icons/fa";
 
 const dummy = [
   {
@@ -49,7 +50,7 @@ const Posts = () => {
                   <h3>{card.postTitle}</h3>
                   <div className={classes.postWriter}>
                     <p>{card.postWriter}</p>
-                    {card.isPublicWriter && <p>★</p>}
+                    {card.isPublicWriter && <FaStar size="15px" color="orange"/>}
                   </div>
                   <div></div>
                   <p>조회수 {card.viewNumber}</p>
