@@ -63,8 +63,6 @@ const printStar = (rate) => {
   return starArr;
 };
 
-const RATING = [1, 2, 3, 4, 5];
-
 const PostDetail = () => {
   //const params = useParams();
   const reviewLikeArr = [];
@@ -191,6 +189,50 @@ const PostDetail = () => {
     setReviewUnlikeBtnIsActive(unlikeBtnActive);
   };
 
+  const [enteredComment, setEnteredComment] = useState("");
+  const [enteredRating, setEnteredRating] = useState(0);
+  const [enteredReview, setEnteredReview] = useState("");
+
+  const commentInputIsValid = enteredComment.trim() !== "";
+  const reviewInputIsValid = enteredReview.trim() !== "" && enteredRating !== 0;
+
+  const commentInputChangeHandler = (e) => {
+    setEnteredComment(e.target.value);
+  };
+
+  const commentSubmissionHandler = (e) => {
+    e.preventDefault();
+
+    if (!commentInputIsValid) {
+      return;
+    }
+
+    console.log(enteredComment);
+    setEnteredComment("");
+  };
+
+  const reviewInputChangeHandler = (e) => {
+    setEnteredReview(e.target.value);
+  };
+
+  const reviewSubmissionHandler = (e) => {
+    e.preventDefault();
+
+    if (!reviewInputIsValid) {
+      return;
+    }
+
+    console.log(enteredReview);
+    console.log(enteredRating);
+    setEnteredReview("");
+    setEnteredRating(0);
+
+  };
+
+  useEffect(()=>{
+    console.log(enteredRating);
+  }, [enteredRating]);
+
   return (
     <div className={classes.body}>
       <div className={classes.body}>
@@ -238,10 +280,17 @@ const PostDetail = () => {
                   })}
               </tbody>
             </table>
-            <div className={classes.writeComment}>
-              <input type="text" />
+            <form
+              className={classes.writeComment}
+              onSubmit={commentSubmissionHandler}
+            >
+              <input
+                type="text"
+                value={enteredComment}
+                onChange={commentInputChangeHandler}
+              />
               <button>댓글 작성</button>
-            </div>
+            </form>
           </div>
         </div>
         <div className={classes.reviewBody}>
@@ -262,7 +311,9 @@ const PostDetail = () => {
                           onClick={() => {
                             reviewLikeBtnHandler(idx);
                           }}
-                          className={reviewLikeBtnIsActive[idx] ? classes.btnActive : ""}
+                          className={
+                            reviewLikeBtnIsActive[idx] ? classes.btnActive : ""
+                          }
                         >
                           좋아요<span>&nbsp;{reviewLike[idx]}</span>
                         </button>
@@ -270,7 +321,11 @@ const PostDetail = () => {
                           onClick={() => {
                             reviewUnlikeBtnHandler(idx);
                           }}
-                          className={reviewUnlikeBtnIsActive[idx] ? classes.btnActive : ""}
+                          className={
+                            reviewUnlikeBtnIsActive[idx]
+                              ? classes.btnActive
+                              : ""
+                          }
                         >
                           싫어요<span>&nbsp;{reviewUnlike[idx]}</span>
                         </button>
@@ -281,13 +336,17 @@ const PostDetail = () => {
                 );
               })}
           </div>
-          <div className={classes.reviewInput}>
-            <Rating />
+          <form className={classes.reviewInput}>
+            <Rating onChange={setEnteredRating} rate={enteredRating}/>
             <div className={classes.writeComment}>
-              <input type="text" />
-              <button>리뷰 작성</button>
+              <input
+                type="text"
+                value={enteredReview}
+                onChange={reviewInputChangeHandler}
+              />
+              <button onClick={reviewSubmissionHandler}>리뷰 작성</button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
