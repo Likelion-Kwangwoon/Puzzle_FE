@@ -66,6 +66,16 @@
   border-bottom: 1px solid lightgray;
 }
 
+.commentUDBtn button{
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.commentUDBtn button:first-child{
+  margin-right: 5px;
+}
+
 .reviewBody {
   display: flex;
   flex-direction: column;
@@ -91,6 +101,7 @@
 .reviewCount h3:first-child {
   margin-right: 20px;
 }
+
 
 .reviewBlock {
   display: flex;

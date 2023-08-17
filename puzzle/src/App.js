@@ -7,6 +7,7 @@ import MyPage from "./pages/MyPage.js";
 import WritePost from "./pages/WritePost.js";
 import PostDetail from "./pages/PostDetail.js";
 import Root from "./components/Root.js";
+import SelectPost from "./pages/SelectPost.js";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       { path: "/mypage", element: <MyPage /> },
       { path: "/writepost", element: <WritePost /> },
       { path: "/posts/:postId", element: <PostDetail /> },
+      {path: "/selectpost", element: <SelectPost/>}
     ],
   },
 ]);

@@ -3,7 +3,7 @@ import classes from "./Rating.module.css";
 import Star from "./Star.js";
 
 const Rating = (props) => {
-  const [rating, setRating] = useState(props.rate);
+  const [rating, setRating] = useState(0);
 
   const starClickHandler = (selectedRating) => {
     setRating(selectedRating);
@@ -11,7 +11,7 @@ const Rating = (props) => {
 
   useEffect(() => {
     props.onChange(rating);
-  }, [rating]);
+  }, [starClickHandler]);
 
   return (
     <div className={classes.rating}>

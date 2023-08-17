@@ -225,11 +225,10 @@ const PostDetail = () => {
     console.log(enteredReview);
     console.log(enteredRating);
     setEnteredReview("");
-    setEnteredRating(0);
-
+    // setEnteredRating(0);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(enteredRating);
   }, [enteredRating]);
 
@@ -275,6 +274,10 @@ const PostDetail = () => {
                           )}
                         </td>
                         <td>{com.commentedDate}</td>
+                        <td className={classes.commentUDBtn}>
+                          <button>수정</button>
+                          <button>삭제</button>
+                        </td>
                       </tr>
                     );
                   })}
@@ -337,7 +340,7 @@ const PostDetail = () => {
               })}
           </div>
           <form className={classes.reviewInput}>
-            <Rating onChange={setEnteredRating} rate={enteredRating}/>
+            <Rating onChange={setEnteredRating} rate={enteredRating} />
             <div className={classes.writeComment}>
               <input
                 type="text"
